@@ -1,21 +1,45 @@
-# API de Gerenciamento de Tarefas - .Net e Entity Framework
+# 🚀 API de Gerenciamento de Tarefas - .Net e Entity Framework
 ![.NET](https://img.shields.io/badge/.NET-8.0-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8-orange)
 
-Este é um desafio de projeto do bootcamp de .NET da  [DIO](www.dio.me).
 
-O desafio em si se baseia em completar o código do [projeto](https://github.com/digitalinnovationone/trilha-net-api-desafio/tree/main) de API, maior parte já feito, faltando apenas o CRUD.
+## 📌 Sobre o projeto
+API desenvolvida como desafio do bootcamp .NET da DIO
+.
+Embora o desafio original trouxesse parte do código pronto, optei por construir a aplicação do zero, apenas com base nos diagramas e endpoints fornecidos.
 
-Como desafio próprio e profissional, esta API foi feita totalmente do zero, usando apenas os digramas e endpoints como base. Código totalmente diferente e atualizado para .NET 8, mas mantendo suas funcionalidades.
-
-# Tecnologias
-- .NET 8 LTS (C#)
-- MySQL + Workbench
-- EntityFrameWorkCore +  Tools + Design
-- Swagger para documentação
+- Código atualizado para .NET 8 LTS
+- Estruturado com Repository Pattern e boas práticas (separação Controller > Service > Repository)
+- Documentado com Swagger
 
 ![Diagrama da classe Tarefa](assets/diagrama.png)
 
+# 🛠️ Tecnologias
+- **.NET 8 LTS (C#)**
+- **MySQL 8** + Workbench
+- **Entity Framework Core** (Migrations, Tools, Design)
+- **Swagger UI** para documentação interativa da API
+
+📂 **Estrutura do Projeto**
+```
+📦 Todo-List
+ ┣ 📂 Controllers     → Endpoints (entrada/saída da API)
+ ┣ 📂 Db              → Configuração do contexto de banco
+ ┣ 📂 DTO             → Objetos de transferência de dados
+ ┣ 📂 Entities        → Modelos principais (persistência)
+ ┣ 📂 Enuns           → Definições de enums (ex.: Status)
+ ┣ 📂 Interfaces      → Contratos de Repositories/Services
+ ┣ 📂 ModelViews      → Representações de resposta
+ ┣ 📂 Repositories    → Acesso ao banco de dados (EF Core)
+ ┣ 📂 Services        → Regras de negócio
+ ┣ appsettings.json   → Configurações da aplicação
+ ┗ Program.cs         → Configuração inicial da API
+```
+
+✅ **Seguindo Repository Pattern para garantir desacoplamento:**
+```
+Controller → Service → Repository
+```
 ## Métodos 
 
 **Swagger**
@@ -38,14 +62,15 @@ Como desafio próprio e profissional, esta API foi feita totalmente do zero, usa
 | GET    | /Tarefa/ObterPorStatus  | status    | N/A           |
 | POST   | /Tarefa                 | N/A       | Schema Tarefa |
 
-Saída esperada em JSON.
+
+## 📑 Exemplo de saída (JSON)
 
 ```json
 {
   "id": 0,
-  "titulo": "string",
-  "descricao": "string",
-  "data": "2022-06-08T01:31:07.056Z",
-  "status": "Pendente"
+  "titulo": "Estudar .NET",
+  "descricao": "Terminar o desafio de projeto",
+  "data": "2025-09-19 12:13:42.748000",
+  "status": "Concluido"
 }
 ```
